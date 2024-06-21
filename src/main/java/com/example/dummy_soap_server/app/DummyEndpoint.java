@@ -1,30 +1,37 @@
 package com.example.dummy_soap_server.app;
 
-import io.spring.guides.gs_producing_web_service.CreateUserRequest;
-import io.spring.guides.gs_producing_web_service.CreateUserResponse;
-import io.spring.guides.gs_producing_web_service.UserResponse;
+import kr.co.inspien._10173.MTLegacyBTEST008010173;
+import kr.co.inspien._10173.MTLegacyBTEST008010173Response;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
+import java.util.Optional;
+
 @Endpoint
 @RequiredArgsConstructor
 public class DummyEndpoint {
-    private static final String NAMESPACE_URI = "http://spring.io/guides/gs-producing-web-service";
+    private static final String NAMESPACE_URI = "http://www.inspien.co.kr/10173";
 
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "createUserRequest")
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "MT_LegacyB_TEST0080_10173")
     @ResponsePayload
-    public CreateUserResponse createUser(@RequestPayload CreateUserRequest request) {
-        CreateUserResponse response = new CreateUserResponse();
+    public MTLegacyBTEST008010173Response test1(@RequestPayload MTLegacyBTEST008010173 request) {
 
-        UserResponse userResponse = new UserResponse();
-        userResponse.setKUNNR(request.getUser().getKUNNR());
-        userResponse.setNAME1(request.getUser().getNAME1());
-        userResponse.setSTATUS("S");
+        System.out.println(request.getCUSTOM().getKUNNR());
+        System.out.println(request.getCUSTOM().getNAME1());
+        System.out.println(request.getCUSTOM().getTELF1());
+        System.out.println(request.getCUSTOM().getADRNR());
 
-        response.setUser(userResponse);
+        MTLegacyBTEST008010173Response response = new MTLegacyBTEST008010173Response();
+
+        MTLegacyBTEST008010173Response.CUSTOM custom = new MTLegacyBTEST008010173Response.CUSTOM();
+        custom.setKUNNR(request.getCUSTOM().getKUNNR());
+        custom.setNAME1(request.getCUSTOM().getNAME1());
+        custom.setSTATUS("S");
+
+        response.setCUSTOM(custom);
 
         return response;
     }

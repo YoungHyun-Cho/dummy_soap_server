@@ -1,34 +1,38 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:tns="http://spring.io/guides/gs-producing-web-service"
-           targetNamespace="http://spring.io/guides/gs-producing-web-service"
-           elementFormDefault="qualified">
-    <xs:element name="createUserRequest">
+           xmlns:tns="http://www.inspien.co.kr/10173"
+           targetNamespace="http://www.inspien.co.kr/10173"
+           elementFormDefault="unqualified">
+
+    <xs:element name="MT_LegacyB_TEST0080_10173">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="user" type="tns:userRequest" />
+                <xs:element name="CUSTOM">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="KUNNR" type="xs:string"/>
+                            <xs:element name="NAME1" type="xs:string"/>
+                            <xs:element name="TELF1" type="xs:string"/>
+                            <xs:element name="ADRNR" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    <xs:element name="CreateUserResponse">
+
+    <xs:element name="MT_LegacyB_TEST0080_10173_response">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="user" type="tns:userResponse"/>
+                <xs:element name="CUSTOM">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="KUNNR" type="xs:string"/>
+                            <xs:element name="NAME1" type="xs:string"/>
+                            <xs:element name="STATUS" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    <xs:complexType name="userRequest">
-        <xs:sequence>
-            <xs:element name="KUNNR" type="xs:string"/>
-            <xs:element name="NAME1" type="xs:string"/>
-            <xs:element name="TELF1" type="xs:string"/>
-            <xs:element name="ADRNR" type="xs:string"/>
-        </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="userResponse">
-        <xs:sequence>
-            <xs:element name="KUNNR" type="xs:string"/>
-            <xs:element name="NAME1" type="xs:string"/>
-            <xs:element name="STATUS" type="xs:string"/>
-        </xs:sequence>
-    </xs:complexType>
 </xs:schema>

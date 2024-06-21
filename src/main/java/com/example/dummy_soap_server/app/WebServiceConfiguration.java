@@ -28,7 +28,7 @@ public class WebServiceConfiguration {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
         wsdl11Definition.setPortTypeName("CustomPort");
         wsdl11Definition.setLocationUri("/ws");
-        wsdl11Definition.setTargetNamespace("http://spring.io/guides/gs-producing-web-service");
+        wsdl11Definition.setTargetNamespace("http://www.inspien.co.kr/10173");
         wsdl11Definition.setSchema(countriesSchema);
         return wsdl11Definition;
     }
